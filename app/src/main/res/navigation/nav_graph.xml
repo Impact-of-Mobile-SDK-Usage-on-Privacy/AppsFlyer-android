@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/InitialState">
+
+    <fragment
+        android:id="@+id/InitialState"
+        android:name="de.tubs.cs.ias.fly.A_InitialState"
+        android:label="Initial State"
+        tools:layout="@layout/initial_state">
+
+        <action
+            android:id="@+id/action_InitialState_to_CreateObject"
+            app:destination="@id/CreateObject" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/CreateObject"
+        android:name="de.tubs.cs.ias.fly.A1_CreateObject"
+        android:label="Create Object"
+        tools:layout="@layout/create_object">
+
+        <action
+            android:id="@+id/action_CreateObject_to_InquireConsent"
+            app:destination="@id/Initialize" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/Initialize"
+        android:name="de.tubs.cs.ias.fly.C_Initialize"
+        android:label="Initialize"
+        tools:layout="@layout/initialize">
+        <action
+            android:id="@+id/action_Initialize_to_CoreFunctionality"
+            app:destination="@id/InquireConsent" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/InquireConsent"
+        android:name="de.tubs.cs.ias.fly.B_InquireConsent"
+        android:label="Inquire Consent"
+        tools:layout="@layout/inquire_consent">
+
+        <action
+            android:id="@+id/action_InquireConsent_to_Initialize"
+            app:destination="@id/CoreFunctionality" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/CoreFunctionality"
+        android:name="de.tubs.cs.ias.fly.D_CoreFunctionality"
+        android:label="Core Functionality"
+        tools:layout="@layout/core_functionality">
+    </fragment>
+</navigation>
